@@ -44,6 +44,7 @@ export OGB_SUBMISSION_CODE="./pcqm4mv2_submission"
 export TIER_TYPE=$(python .gradient/check_tier.py)
 export FIREHOSE_STREAM_NAME="paperspacenotebook_production"
 export GCLOGGER_CONFIG="${PUBLIC_DATASETS_DIR}/gcl"
+export REPO_FRAMEWORK="Tensorflow 2"
 
 echo "Graphcore setup - Spawning dataset preparation process"
 nohup /notebooks/.gradient/prepare-datasets.sh ${@} & tail -f nohup.out &
