@@ -5,6 +5,22 @@ Graphcore-Tensorflow2-README_first:
   notebook:
     file: README_first.ipynb
 
+DeepLOB-attention-notebook:
+  location: ../third-party-models/financial-forecasting
+  generated: true
+  notebook:
+    timeout: 10000
+    file: Multi-Horizon-DeepLOBAttention-training.ipynb
+  requirements_file: requirements.txt
+
+DeepLOB-Seq2Seq-notebook:
+  location: ../third-party-models/financial-forecasting
+  generated: true
+  notebook:
+    timeout: 10000
+    file: Multi-Horizon-DeepLOBSeq2Seq-training.ipynb
+  requirements_file: requirements.txt
+
 gnn-cluster-gcn-notebook:
   location: ../gnn-cluster-gcn
   generated: true
