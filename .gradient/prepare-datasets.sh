@@ -2,6 +2,8 @@
 set -euxo pipefail
 run-tests() {
     echo "Start testing"
+    python -m pip install gradient
+
     # set variable matching the standard Paperspace entry point
     export PIP_DISABLE_PIP_VERSION_CHECK=1
 
@@ -45,9 +47,9 @@ elif [[ "${2:-}" == 'test' ]]; then
 fi
 
 python -m pip install "examples-utils[jupyter] @ git+https://github.com/graphcore/examples-utils@${EXAMPLES_UTILS_REV}" --use-feature=fast-deps
-python -m pip install gradient
 
-python -m pip install -r /notebooks/ogb-competition/requirements.txt
+# Make the custom ops for the OGB notebooks
+python -m pip install -r /notebooks/ogb-competition/requirements.txt --use-feature=fast-deps
 cd "/notebooks/ogb-competition/${OGB_SUBMISSION_CODE}"
 make -C data_utils/feature_generation
 make -C static_ops
