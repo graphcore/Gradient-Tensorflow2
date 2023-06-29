@@ -56,7 +56,6 @@ make -C data_utils/feature_generation
 make -C static_ops
 cd -
 
-mkdir -p ${PERSISTENT_CHECKPOINT_DIR}
 echo "Starting preparation of datasets"
 python -m examples_utils paperspace symlinks --path "$( dirname -- "${BASH_SOURCE[0]}" )"/symlink_config.json
 
