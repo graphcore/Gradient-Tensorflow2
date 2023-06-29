@@ -27,7 +27,6 @@ gnn-cluster-gcn-notebook:
   notebook:
     timeout: 10000
     file: run_cluster_gcn_notebook.ipynb
-  requirements_file: requirements.txt
 
 ogb-training:
   location: ../ogb-competition
