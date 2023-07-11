@@ -1,7 +1,7 @@
 # Copyright (c) 2022 Graphcore Ltd. All rights reserved.
 
 _common_source_repository: &_common_source_repository
-  origin: git@github.com:graphcore/examples-internal.git
+  origin: examples-internal/
   ref: sdk-release-3.3.0
 
 _common_target_repository: &_common_target_repository
