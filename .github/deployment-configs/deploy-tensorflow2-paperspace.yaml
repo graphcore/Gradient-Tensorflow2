@@ -48,8 +48,8 @@ ogb-competition-submission-files:
 tf2-financial-modelling:
   source:
     paths:
-    - path: finance/deeplob/tensorflow2/Multi_Horizon_Financial_Forecasting_on_IPU_using_DeepLOBAttention_Training.ipynb
-    - path: finance/deeplob/tensorflow2/Multi_Horizon_Financial_Forecasting_on_IPU_using_DeepLOBSeq2Seq_Training.ipynb
+    - path: finance/deeplob/tensorflow2/Multi-Horizon-DeepLOBAttention-training.ipynb
+    - path: finance/deeplob/tensorflow2/Multi-Horizon-DeepLOBSeq2Seq-training.ipynb
     - path: finance/deeplob/tensorflow2/requirements.txt
     repository:
       <<: *_common_source_repository
