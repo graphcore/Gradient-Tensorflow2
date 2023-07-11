@@ -30,8 +30,8 @@ ogb-competition-submission-files:
       path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/
       recursive: true
     excludes:
-    - path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/notebook_inference.ipynb
-    - path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/notebook_training.ipynb
+    - path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/gps++_inference.ipynb
+    - path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/gps++_training.ipynb
     - path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/requirements.txt
     - path: .git/
       recursive: true
