@@ -2,11 +2,11 @@
 
 _common_source_repository: &_common_source_repository
   origin: git@github.com:graphcore/examples-internal.git
-  ref: sdk-release-3.2
+  ref: sdk-release-3.3.0
 
 _common_target_repository: &_common_target_repository
-  origin: git@github.com:graphcore/Graphcore-Tensorflow2-fork.git
-  ref: prepare-sdk-3.2
+  origin: notebooks/
+  ref: null
 
 ogb-competition-notebook:
   source:
@@ -63,26 +63,26 @@ tf2-financial-modelling:
       prefix: third-party-models/financial-forecasting
 
 # TODO: edit this config to pull from the examples repo, once this patch has been merged in
-tf2-cluster-GCN-patch:
-  source:
-    paths:
-    - expression: '*'
-      path: gnn/cluster_gcn/tensorflow2
-      recursive: true
-    excludes:
-    - path: gnn/cluster_gcn/tensorflow2/README.md
-    - expression: '*'
-      path: gnn/cluster_gcn/tensorflow2/.ci
-      recursive: true
-    repository:
-      <<: *_common_source_repository
-      ref: master
-      prefix: gnn/cluster_gcn/tensorflow2
-  target:
-    renames: {}
-    repository:
-      <<: *_common_target_repository
-      prefix: gnn-cluster-gcn/
+# tf2-cluster-GCN-patch:
+#   source:
+#     paths:
+#     - expression: '*'
+#       path: gnn/cluster_gcn/tensorflow2
+#       recursive: true
+#     excludes:
+#     - path: gnn/cluster_gcn/tensorflow2/README.md
+#     - expression: '*'
+#       path: gnn/cluster_gcn/tensorflow2/.ci
+#       recursive: true
+#     repository:
+#       <<: *_common_source_repository
+#       ref: master
+#       prefix: gnn/cluster_gcn/tensorflow2
+#   target:
+#     renames: {}
+#     repository:
+#       <<: *_common_target_repository
+#       prefix: gnn-cluster-gcn/
 
 tf2-keras:
   source:
