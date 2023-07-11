@@ -1,0 +1,136 @@
+# Copyright (c) 2022 Graphcore Ltd. All rights reserved.
+
+_common_source_repository: &_common_source_repository
+  origin: git@github.com:graphcore/examples-internal.git
+  ref: sdk-release-3.2
+
+_common_target_repository: &_common_target_repository
+  origin: git@github.com:graphcore/Graphcore-Tensorflow2-fork.git
+  ref: prepare-sdk-3.2
+
+ogb-competition-notebook:
+  source:
+    paths:
+    - path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/gps++_inference.ipynb
+    - path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/gps++_training.ipynb
+    - path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/requirements.txt
+    repository:
+      <<: *_common_source_repository
+      prefix: gnn/ogb_lsc_pcqm4mv2/tensorflow2
+  target:
+    renames: {}
+    repository:
+      <<: *_common_target_repository
+      prefix: ogb-competition/
+
+ogb-competition-submission-files:
+  source:
+    paths:
+    - expression: '*'
+      path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/
+      recursive: true
+    excludes:
+    - path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/notebook_inference.ipynb
+    - path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/notebook_training.ipynb
+    - path: gnn/ogb_lsc_pcqm4mv2/tensorflow2/requirements.txt
+    - path: .git/
+      recursive: true
+    repository:
+      <<: *_common_source_repository
+      prefix: gnn/ogb_lsc_pcqm4mv2/tensorflow2
+  target:
+    renames:
+      ogb-competition/pcqm4mv2_submission/notebook_utils.py: ogb-competition/pcqm4mv2_submission/ogb_utils.py
+    repository:
+      <<: *_common_target_repository
+      prefix: ogb-competition/pcqm4mv2_submission/
+
+tf2-financial-modelling:
+  source:
+    paths:
+    - path: finance/deeplob/tensorflow2/Multi_Horizon_Financial_Forecasting_on_IPU_using_DeepLOBAttention_Training.ipynb
+    - path: finance/deeplob/tensorflow2/Multi_Horizon_Financial_Forecasting_on_IPU_using_DeepLOBSeq2Seq_Training.ipynb
+    - path: finance/deeplob/tensorflow2/requirements.txt
+    repository:
+      <<: *_common_source_repository
+      ref: master
+      prefix: finance/deeplob/tensorflow2/
+  target:
+    renames: {finance/deeplob/tensorflow2/Multi_Horizon_Financial_Forecasting_on_IPU_using_DeepLOBAttention_Training.ipynb: third-party-models/financial-forecasting/Multi-Horizon-DeepLOBAttention-training.ipynb,
+              finance/deeplob/tensorflow2/Multi_Horizon_Financial_Forecasting_on_IPU_using_DeepLOBSeq2Seq_Training.ipynb: third-party-models/financial-forecasting/Multi-Horizon-DeepLOBSeq2Seq-training.ipynb}
+    repository:
+      <<: *_common_target_repository
+      prefix: third-party-models/financial-forecasting
+
+# TODO: edit this config to pull from the examples repo, once this patch has been merged in
+tf2-cluster-GCN-patch:
+  source:
+    paths:
+    - expression: '*'
+      path: gnn/cluster_gcn/tensorflow2
+      recursive: true
+    excludes:
+    - path: gnn/cluster_gcn/tensorflow2/README.md
+    - expression: '*'
+      path: gnn/cluster_gcn/tensorflow2/.ci
+      recursive: true
+    repository:
+      <<: *_common_source_repository
+      ref: master
+      prefix: gnn/cluster_gcn/tensorflow2
+  target:
+    renames: {}
+    repository:
+      <<: *_common_target_repository
+      prefix: gnn-cluster-gcn/
+
+tf2-keras:
+  source:
+    paths:
+    - expression: '*'
+      path: tutorials/tutorials/tensorflow2/keras
+      recursive: true
+    excludes:
+    - path: tutorials/tutorials/tensorflow2/keras/README.md
+    repository:
+      <<: *_common_source_repository
+      prefix: tutorials/tutorials/tensorflow2/keras
+  target:
+    renames: {}
+    repository:
+      <<: *_common_target_repository
+      prefix: learning-TensorFlow2-on-IPU/keras
+
+tf2-mnist:
+  source:
+    paths:
+    - expression: '*'
+      path: tutorials/simple_applications/tensorflow2/mnist
+      recursive: true
+    excludes:
+    - path: tutorials/simple_applications/tensorflow2/mnist/README.md
+    repository:
+      <<: *_common_source_repository
+      prefix: tutorials/simple_applications/tensorflow2/mnist
+  target:
+    renames: {}
+    repository:
+      <<: *_common_target_repository
+      prefix: learning-TensorFlow2-on-IPU/mnist
+
+tf2-tensorboard:
+  source:
+    paths:
+    - expression: '*'
+      path: tutorials/tutorials/tensorflow2/tensorboard
+      recursive: true
+    excludes:
+    - path: tutorials/tutorials/tensorflow2/tensorboard/README.md
+    repository:
+      <<: *_common_source_repository
+      prefix: tutorials/tutorials/tensorflow2/tensorboard
+  target:
+    renames: {}
+    repository:
+      <<: *_common_target_repository
+      prefix: learning-TensorFlow2-on-IPU/tensorboard
