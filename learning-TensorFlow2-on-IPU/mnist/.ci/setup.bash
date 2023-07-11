@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copyright (c) 2022 Graphcore Ltd. All rights reserved.
+# Copyright (c) 2023 Graphcore Ltd. All rights reserved.
 
 ###
 # Here run your prerequisites before running the tests
@@ -11,18 +11,15 @@ cd "$(dirname "$0")"/..
 # System packages
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get install -y wget python3-numpy
+if [ -f required_apt_packages.txt ]; then apt-get install -y $(< required_apt_packages.txt); fi
 
 # Upgrade pip
 python3 -m pip install --upgrade pip
 
 # Python packages
-python3 -m pip install -r requirements.txt
-python3 -m pip install -r requirements-dev.txt
-
-# Get dataset splits
-wget https://graphcore-ogblsc-pcqm4mv2.s3.us-west-1.amazonaws.com/pcqm4mv2-cross_val_splits.tar.gz
-tar xvzf pcqm4mv2-cross_val_splits.tar.gz
+for requirements in $(find . -name requirements.txt); do
+    python3 -m pip install -r $requirements
+done
 
 echo "Python version: $(python3 --version)"
 echo "Pip version: $(python3 -m pip --version)"
