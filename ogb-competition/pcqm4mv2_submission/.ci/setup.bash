@@ -11,7 +11,7 @@ cd "$(dirname "$0")"/..
 # System packages
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get install wget
+apt-get install -y wget python3-numpy
 
 # Upgrade pip
 python3 -m pip install --upgrade pip
