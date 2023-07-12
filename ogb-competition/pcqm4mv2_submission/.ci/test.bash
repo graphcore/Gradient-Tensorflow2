@@ -3,7 +3,7 @@
 
 ###
 # Here run your tests
-# JUnit XML files with the patten `*report.xml` will be published as a test report
+# JUnit XML files with the pattern `*report.xml` will be published as a test report
 ###
 
 # cd to app root directory and add `utils/examples_tests` to PYTHONPATH
