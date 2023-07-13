@@ -16,12 +16,25 @@ We will do the following steps in order:
 4. Train the model on the IPU.
 """
 """
-### Running on Paperspace
+## 1. Preparing your environment
 
-The Paperspace environment lets you run this notebook with no set up. To improve your experience we preload datasets and pre-install packages, this can take a few minutes, if you experience errors immediately after starting a session please try restarting the kernel before contacting support. If a problem persists or you want to give us feedback on the content of this notebook, please reach out to through our community of developers using our [slack channel](https://www.graphcore.ai/join-community) or raise a [GitHub issue](https://github.com/gradient-ai/Graphcore-Tensorflow2/issues).
+In order to run this tutorial on the IPU you will need:
+
+- A Poplar SDK environment enabled (see the [Getting Started](https://docs.graphcore.ai/en/latest/getting-started.html) guide for your IPU system).
+- TensorFlow 2 set up for the IPU (see the [Setup Instructions](https://docs.graphcore.ai/projects/ipu-pod-getting-started/en/3.1.0/installation.html#setting-up-tensorflow-for-the-ipu))
 """
 """
-## 1. Import the necessary libraries
+To run the Jupyter notebook version of this tutorial:
+
+1. Enable a Poplar SDK environment
+2. In the same environment, install the Jupyter notebook server: `python -m pip install jupyter`
+3. Launch a Jupyter Server on a specific port: `jupyter-notebook --no-browser --port <port number>`
+4. Connect via SSH to your remote machine, forwarding your chosen port: `ssh -NL <port number>:localhost:<port number> <your username>@<remote machine>`
+
+For more details about this process, or if you need troubleshooting, see our [guide on using IPUs from Jupyter notebooks](../../../tutorials/standard_tools/using_jupyter/).
+"""
+"""
+## 2. Import the necessary libraries
 
 First of all, we need to import APIs that will be used in the example.
 """
@@ -37,7 +50,7 @@ if tf.__version__[0] != "2":
 For the `ipu` module to function properly, we must import it directly rather
 than accessing it through the top-level TensorFlow module.
 
-## 2. Prepare the dataset
+## 3. Prepare the dataset
 
 We can access the MNIST dataset through keras:
 """
@@ -71,7 +84,7 @@ size as an argument and has the option to discard the remaining elements after
 the dataset is divided (`drop_remainder`). This option must be
 set to true in order to use the dataset with Keras model on the IPU.
 
-## 3. Define the model
+## 4. Define the model
 
 Next, we define our model using the Keras Sequential API.
 """
@@ -90,7 +103,7 @@ def create_model():
 
 """
 
-## 4. Add IPU configuration
+## 5. Add IPU configuration
 
 To use the IPU, we must create an IPU configuration.
 We can use `cfg.auto_select_ipus = 1` to automatically select one IPU:
@@ -115,7 +128,7 @@ parallelism](https://docs.graphcore.ai/projects/tf-model-parallelism/en/3.1.0/mo
 section of our [TensorFlow 2 Keras
 tutorial](../../../tutorials/tensorflow2/keras).
 
-## 5. Specify IPU strategy
+## 6. Specify IPU strategy
 
 Next, add the following code after the configuration:
 """
@@ -134,7 +147,7 @@ should be used, in conjunction with our PopDist library.
 instances with PopDist, head over to our [TensorFlow 2 PopDist
 example](../../../feature_examples/tensorflow2/popdist).
 
-## 6. Wrap the model within the IPU strategy scope
+## 7. Wrap the model within the IPU strategy scope
 
 Creating variables within the scope of the `IPUStrategy` will ensure that they
 are placed on the IPU, but the initialization for the variables will be
