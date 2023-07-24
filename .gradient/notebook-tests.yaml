@@ -33,7 +33,7 @@ ogb-training:
   location: ../ogb-competition
   generated: true
   notebook:
-    timeout: 10000
+    timeout: 16000
     file: gps++_training.ipynb
   requirements_file: requirements.txt
 
