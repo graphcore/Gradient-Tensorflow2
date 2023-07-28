@@ -280,7 +280,7 @@ The file `completed_demos/completed_demo_ipu.py` shows what the code looks like
 after the above changes are made.
 """
 """
-#### Going faster by setting `steps_per_execution`
+#### Going faster by setting steps per execution
 
 The IPU implementation above is fast, but not as fast as it could be. This is
 because, unless we specify otherwise, the program that runs on the IPU will
