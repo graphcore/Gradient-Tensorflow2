@@ -15,4 +15,4 @@ ruyaml==0.91.0
 wandb==0.13.4
 tqdm==4.64.0
 numpy<1.24
-graphcore-cloud-tools[logger] @ git+https://github.com/graphcore/graphcore-cloud-tools
+graphcore-cloud-tools[logger] @ git+https://github.com/graphcore/graphcore-cloud-tools@v0.2
