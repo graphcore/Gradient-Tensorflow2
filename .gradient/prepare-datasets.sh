@@ -49,13 +49,6 @@ python -m pip install "graphcore-cloud-tools[logger] @ git+https://github.com/gr
 echo "Starting preparation of datasets"
 python -m graphcore_cloud_tools paperspace symlinks --path "$( dirname -- "${BASH_SOURCE[0]}" )"/symlink_config.json
 
-# Make the custom ops for the OGB notebooks
-python -m pip install -r /notebooks/ogb-competition/requirements.txt
-cd "/notebooks/ogb-competition/${OGB_SUBMISSION_CODE}"
-make -C data_utils/feature_generation
-make -C static_ops
-cd -
-
 echo "Finished running prepare-datasets.sh"
 # Run automated test if specified
 if [[ "${1:-}" == 'test' ]]; then
