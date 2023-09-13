@@ -56,6 +56,7 @@ export CHECKPOINT_DIR="/tmp/checkpoints"
 # mounted public dataset directory (path in the container)
 # in the Paperspace environment this would be ="/datasets"
 export PUBLIC_DATASETS_DIR="/datasets"
+export S3_DATASETS_DIR="/graphcore-gradient-datasets"
 
 export TF_POPLAR_FLAGS='--executable_cache_path='${POPLAR_EXECUTABLE_CACHE_DIR}''
 

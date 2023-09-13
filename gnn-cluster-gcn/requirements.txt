@@ -20,4 +20,4 @@ tensorflow-addons==0.14.0
 torch==1.13.1+cu116; python_version >= '3.9'
 trainlog==0.2
 wandb==0.12.8
-graphcore-cloud-tools[logger] @ git+https://github.com/graphcore/graphcore-cloud-tools
+graphcore-cloud-tools[logger] @ git+https://github.com/graphcore/graphcore-cloud-tools@v0.3
