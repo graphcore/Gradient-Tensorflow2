@@ -11,7 +11,6 @@ DeepLOB-attention-notebook:
   notebook:
     timeout: 10000
     file: Multi-Horizon-DeepLOBAttention-training.ipynb
-  requirements_file: requirements.txt
 
 DeepLOB-Seq2Seq-notebook:
   location: ../third-party-models/financial-forecasting
@@ -19,7 +18,6 @@ DeepLOB-Seq2Seq-notebook:
   notebook:
     timeout: 10000
     file: Multi-Horizon-DeepLOBSeq2Seq-training.ipynb
-  requirements_file: requirements.txt
 
 gnn-cluster-gcn-notebook:
   location: ../gnn-cluster-gcn
@@ -29,7 +27,6 @@ gnn-cluster-gcn-notebook:
   notebook:
     timeout: 10000
     file: run_cluster_gcn_notebook.ipynb
-  requirements_file: requirements.txt
 
 ogb-training:
   location: ../ogb-competition
@@ -39,7 +36,6 @@ ogb-training:
   notebook:
     timeout: 16000
     file: gps++_training.ipynb
-  requirements_file: requirements.txt
 
 ogb-inference:
   location: ../ogb-competition
@@ -49,7 +45,6 @@ ogb-inference:
   notebook:
     timeout: 10000
     file: gps++_inference.ipynb
-  requirements_file: requirements.txt
 
 keras-demo:
   location: ../learning-TensorFlow2-on-IPU/keras
@@ -57,7 +52,6 @@ keras-demo:
   notebook:
     timeout: 10000
     file: demo.ipynb
-  requirements_file: requirements.txt
 
 
 mnist-mnist:
@@ -66,7 +60,6 @@ mnist-mnist:
   notebook:
     timeout: 10000
     file: mnist.ipynb
-  requirements_file: requirements.txt
 
 
 tensorboard-demo:
@@ -75,7 +68,6 @@ tensorboard-demo:
   notebook:
     timeout: 10000
     file: demo.ipynb
-  requirements_file: requirements.txt
 
 direct-s3-access:
   location: ./
