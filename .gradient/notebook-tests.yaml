@@ -19,6 +19,13 @@ DeepLOB-Seq2Seq-notebook:
     timeout: 10000
     file: Multi-Horizon-DeepLOBSeq2Seq-training.ipynb
 
+PINN-notebook:
+  location: ../third-party-models/physics-informed-neural-networks
+  generated: true
+  notebook:
+    timeout: 10000
+    file: PINN_Wave_Equation.ipynb
+
 gnn-cluster-gcn-notebook:
   location: ../gnn-cluster-gcn
   paperspace-automation-ext:
