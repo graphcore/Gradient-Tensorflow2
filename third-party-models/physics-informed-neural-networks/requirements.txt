@@ -1,0 +1,9 @@
+numpy
+scipy
+matplotlib==3.6
+tqdm 
+pandas==1.4
+pyDOE
+jupyterlab
+notebook
+ipython
