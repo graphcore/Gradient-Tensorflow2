@@ -33,7 +33,7 @@ The Paperspace environment lets you run this notebook with no set up. To improve
 To run the code in this tutorial there are two basic requirements.
 packages installed with `python -m pip install -r requirements.txt`
 """
-# %pip install -q -r requirements.txt
+# %pip install  -r requirements.txt
 # sst_ignore_md
 # sst_ignore_code_only
 """
